@@ -258,3 +258,25 @@ function SLUG_addCSS() {
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
+
+
+function ninja_video_details() {
+	
+	if (get_post_type() != 'video') return;
+	
+	$duracao = get_post_meta(get_the_ID(), 'duracao', true);
+	$decupagem = get_post_meta(get_the_ID(), 'decupagem', true);
+	?>
+	Cidade: <?php the_terms(get_the_ID(), 'cidade'); ?><br/>
+	Estado: <?php the_terms(get_the_ID(), 'estado'); ?><br/>
+	Data da transmissão: <?php the_terms(get_the_ID(), 'data'); ?><br/>
+	<b>Resumo:</b> <?php echo get_the_excerpt(); ?> <br/><br/>
+	<?php if ($duracao): ?>
+		<b>Duração:</b> <?php echo $duracao; ?> <br/>
+	<?php endif; ?>
+	<?php if ($decupagem): ?>
+		<b>Decupagem:</b> <?php echo nl2br($decupagem); ?> <br/>
+	<?php endif; ?>
+	
+	<?php
+}

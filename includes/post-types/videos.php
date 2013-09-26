@@ -51,9 +51,10 @@ class video
             'supports' => array(
                 'title',
                 'editor',
+                'excerpt',
                 //'page-attributes'
             ),
-            'taxonomies' => array('cidade', 'estado')
+            'taxonomies' => array('cidade', 'estado', 'data', 'post_tag')
             )
         );
     }
@@ -98,6 +99,28 @@ class video
         );
 
         register_taxonomy('estado', self::$post_type, array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_ui' => true,
+            'query_var' => true,
+            'rewrite' => true,
+            )
+        );
+        
+        $labels = array(
+            'name' => _x('Datas', 'taxonomy general name', 'SLUG'),
+            'singular_name' => _x('Data', 'taxonomy singular name', 'SLUG'),
+            'search_items' => __('Buscar data', 'SLUG'),
+            'all_items' => __('Todos as datas', 'SLUG'),
+            'parent_item' => __('Data pai', 'SLUG'),
+            'parent_item_colon' => __('Data pai:', 'SLUG'),
+            'edit_item' => __('Editar data', 'SLUG'),
+            'update_item' => __('Atualizar data', 'SLUG'),
+            'add_new_item' => __('Adiciona nova data', 'SLUG'),
+            'new_item_name' => __('Nome do nova data', 'SLUG'),
+        );
+
+        register_taxonomy('data', self::$post_type, array(
             'hierarchical' => true,
             'labels' => $labels,
             'show_ui' => true,

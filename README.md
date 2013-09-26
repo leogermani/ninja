@@ -1,4 +1,0 @@
-ninja
-=====
-
-Ninja WordPress theme

@@ -55,8 +55,9 @@ class VideoMetabox {
         $metadata = get_metadata('post', $post->ID);
         
         ?>
-        <label> Duração: <input type="text" name="<?php echo __CLASS__ ?>[duracao]" value="<?php echo $metadata['duracao'][0]; ?>" /></label>
-        <label> Decupagem: <textarea name="<?php echo __CLASS__ ?>[decupagem]"><?php echo $metadata['decupagem'][0]; ?></textarea></label>
+        <label> Duração:<br/> <input type="text" name="<?php echo __CLASS__ ?>[duracao]" value="<?php echo $metadata['duracao'][0]; ?>" /></label>
+        <br/><br/>
+        <label> Decupagem:<br/> <textarea cols="40" style="width:98%; height: 4em;" name="<?php echo __CLASS__ ?>[decupagem]"><?php echo $metadata['decupagem'][0]; ?></textarea></label>
         <?php
     }
 
